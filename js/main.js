@@ -29,5 +29,6 @@ $(document).ready(function(){
     $('li:nth-child(4)').html("humidity: " + humidity);
     $('li:nth-child(5)').html('today will be: '+ icon);
 
+
 });
 });
