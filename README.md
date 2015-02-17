@@ -4,6 +4,7 @@ This is going to b-e-a-u-tiful
 Start Page
 * Input zip code -> convert to lat & long
 * Google maps or built in?
+* automatically determined?
 
 Use lat/long to pull weather for current location
 * use input to request local weather
