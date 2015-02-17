@@ -96,8 +96,46 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+html {
+    background: url(https://ynpntest.files.wordpress.com/2014/07/do2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
+.content {
+   width: 90%;
+   margin: 0 auto;
+}
 
+.weather {
+    background: rgba(0, 0, 0, 0.85);
+    display: inline-block;
+}
+
+h1, h2, h4 {
+    color: #fff;    
+}
+
+li {
+    color: #fff;
+    font-size: 3ex;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 4ex 5em;
+}
+
+i {
+    font-size: 7em;
+    color: #fff;
+    float: right;
+    margin-right: .5em;
+    margin-top: .5ex;
+}
 
 
 

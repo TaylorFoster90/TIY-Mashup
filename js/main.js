@@ -23,10 +23,10 @@ $(document).ready(function(){
     var cloudCover =  data.currently.cloudCover;
     var icon =  data.currently.icon;
 
-    $('li:nth-child(1)').html("The Current Temp is: "+ currentTemp + "\&#176");
-    $('li:nth-child(2)').html("humidity is: " + humidity);
-    $('li:nth-child(3)').html("today will be: " + summary);
-    $('li:nth-child(4)').html("cloud cover: "+ cloudCover);
+    $('li:nth-child(1)').html(currentTemp + "\&#176");
+    $('li:nth-child(2)').html(summary);
+    $('li:nth-child(3)').html("cloud cover: "+ cloudCover);
+    $('li:nth-child(4)').html("humidity: " + humidity);
     $('li:nth-child(5)').html('today will be: '+ icon);
 
 });
