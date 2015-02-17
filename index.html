@@ -14,24 +14,100 @@
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <!--endbower-->
         <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/weather-icons.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <ul>
-            <li> </li>
-            <li> </li>
-            <li> </li>
-            <li> </li>
-            <li> </li>
-        </ul>
+<div class="container">
+<div id="fullpage">
+<div class="section active">
+    <header class="masthead">       
+         <h2>Motherfucking Weather Version 0.0.2</h2>
+         <p>A T&J Enterprise</p>
+    </header>
+ </div>   
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <div class="section" id="#current" >
+        <div class="block">
+            <h4>Current Conditions for<br> {{your fucking location}}</h4>
+             <i class="wi wi-night-cloudy"></i>
+             <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>    
+            </ul>    
+        </div>        
+    </div>
+
+
+    
+    <div class="section"  id="#hourly">
+        <div class="block">
+            <h4>Hourly Fucking Forecast</h4>
+             <ul>
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+            </ul>    
+        </div>        
+    </div>
+
+
+
+    <div class="section" id="#tenday">
+        <div class="block">
+            <h4>10 Day Fucking Forecast</h4>
+            <ul>
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+            </ul>    
+        </div>
+    </div>   
+
+    
+</div>            
+</div>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.12/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <!--bower:js-->
         <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -39,16 +115,9 @@
         <script src="bower_components/lodash/lodash.js"></script>
         <!--endbower-->
         <script src="js/plugins.js"></script>
+        <script type="text/javascript" src="js/jquery.fullPage.js"></script>
         <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+        
+      
     </body>
 </html>
