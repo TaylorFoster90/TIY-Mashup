@@ -96,49 +96,54 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-html {
-    background: url(https://ynpntest.files.wordpress.com/2014/07/do2.jpg) no-repeat center center fixed;
+/*
+http://25.media.tumblr.com/4a5c28d5e0db3c191f7cf2fb9943f19a/tumblr_mlv6o8XmJJ1rqd92do1_500.gif (owl)
+http://i.imgur.com/22cgrad.gif (explorer)
+http://i.imgur.com/uOYFkKS.gif (waterfall and forest)
+http://i.imgur.com/tL01ibd.jpg (bruce lee)
+https://lh5.googleusercontent.com/-uITxt6RcH1M/VN9ulYkzOCI/AAAAAAAAA28/aU4X4fQ4_nE/w803-h324-no/greenland-sail.gif (greenland)
+http://i.imgur.com/gh2udno.jpg
+
+*/
+body {
+    background: url('http://i.imgur.com/gh2udno.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    color:#fff;
+    background-color:#333;
+    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
 }
 
-.content {
-   width: 90%;
-   margin: 0 auto;
-}
-
-.weather {
-    background: rgba(0, 0, 0, 0.85);
-    display: inline-block;
-}
-
-h1, h2, h4 {
-    color: #fff;    
-}
-
-li {
-    color: #fff;
+header {
+    height: 10ex;
+    margin-left: .5em;
     font-size: 3ex;
-    margin: auto;
+/*    color: rgba(0,0,0,0.6);*/
 }
 
 ul {
     list-style: none;
-    padding: 4ex 5em;
 }
 
-i {
-    font-size: 7em;
-    color: #fff;
+li {
+    margin-left: -2em;
+}
+
+.block {
+    background-color: rgba(0,0,0,0.6);
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-left: 2em;
+    display: inline-block;
+    width: 40%;
+}
+
+.block i {
+    font-size: 10ex;
     float: right;
-    margin-right: .5em;
-    margin-top: .5ex;
 }
-
-
-
 
 
 

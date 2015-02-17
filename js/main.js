@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    $('#fullpage').fullpage();
 	$.getJSON('weather.json', function(data) {
     // console.log(data.currently);
     // console.log("Time:" + " " + data.currently.time);
