@@ -16,10 +16,11 @@ $(document).ready(function(){
 
     //hourly
     var hourly = data.hourly.data
+    var hTemp =  _.map(hourly, 'temperature');
 
-    console.log(_.map(hourly, 'temperature'))
+    for(var i=0; i < 24; i++){
+        $('.hour').append("<li>"+Math.floor(hTemp[i])+"\&#176"+"</li>");
+         }
 
-
-
-});
+   });
 });
