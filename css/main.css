@@ -133,29 +133,39 @@ li {
 
 .block {
     background-color: rgba(0,0,0,0.6);
-    padding-left: 1em;
-    padding-right: 1em;
-    margin-left: 2em;
-    display: inline-block;
-    width: 40%;
+    font-family: Oldenburg;
 }
 
-.block i {
-    font-size: 10ex;
-    float: right;
+.hour {
+    display: inline-block;
 }
 .hour i {
     font-size: 1em;
 }
+.hour ul li {
+    border: solid;
+}
 
-
-
-
-
-
-
-
-
+a:hover {
+    text-decoration: none;
+}
+.show{
+    display: inline;
+}
+.current {
+    font-size: 2em;
+    border: solid;
+    padding-left: 10%;
+    border-radius: 2em;
+    background-color: rgba(0,0,0,.6);
+    width: 40%;
+}
+.current a {
+    color: white;
+}
+.current span{
+    display: none;
+}
 
 
 /* ==========================================================================

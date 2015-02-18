@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('#fullpage').fullpage();
-	$.getJSON('http://api.forecast.io/forecast/9e3f9effa091da78070dd0e26d01368f/28.4158,-81.2989', function(data) {
+	$.getJSON('weather2.json', function(data) {
     //current weather
     var cTemp = data.currently.apparentTemperature;
     var cHumidity =  data.currently.humidity;
@@ -22,11 +22,26 @@ $(document).ready(function(){
     if(cSummary == 'Snow'){
         $('i').addClass('wi wi-snow');
     };
-    $('li:nth-child(1)').html(cTemp + "\&#176");
-    $('li:nth-child(2)').html(cSummary);
-    $('li:nth-child(3)').html("cloud cover: "+ cCloudCover);
-    $('li:nth-child(4)').html("humidity: " + cHumidity);
-
+    $('li:nth-child(1)').append("<span>" + cTemp + "\&#176" + "</span>");
+    $('li:nth-child(2)').append("<span>" + cSummary + "</span>");
+    $('li:nth-child(3)').append("<span>" + "Cloud Cover: "+ Math.floor(cCloudCover*100)+"%" + "</span>");
+    $('li:nth-child(4)').append("<span>" + "Humidity: " + Math.floor(cHumidity*100) + "%" + "</span>");
+    $('#temp').hover(
+        function(){
+            $(this).children().css('display', 'inline');
+        });
+    $('#sum').hover(
+        function(){
+            $(this).children().css('display', 'inline');
+        });
+    $('#cloud').hover(
+        function(){
+            $(this).children().css('display', 'inline');
+        });
+    $('#humid').hover(
+        function(){
+            $(this).children().css('display', 'inline');
+        });
     //hourly
     var hourly = data.hourly.data
     var hTemp =  _.map(hourly, 'temperature');
@@ -38,5 +53,6 @@ $(document).ready(function(){
         var hours = date.getHours();
         $('.hour').append("<li>"+hours+":00"+" "+Math.floor(hTemp[i])+"\&#176"+ " " + hSummary[i] +"</li>");
         }
+
    });
 });

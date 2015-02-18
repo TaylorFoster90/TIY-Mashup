@@ -13,6 +13,8 @@
         <!--bower:css-->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <!--endbower-->
+
+        <link href='http://fonts.googleapis.com/css?family=Oldenburg' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/weather-icons.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
@@ -35,25 +37,21 @@
  </div>   
 
 
-    <div class="section" id="#current" >
-        <div class="block">
-            <h4>Current Conditions for<br> {{your fucking location}}</h4>
-             <i></i>
-             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>    
-            </ul>    
-        </div>        
+    <div class="section" id="#current">
+           <a href="#" class="glyphicon glyphicon-screenshot"></a><span>Orlando,FL</span>
+             <ul class="current">
+                <li id="temp"><a href="#" class="glyphicon glyphicon-leaf"></a></li>
+                <li id="sum"><a href="#" class="glyphicon glyphicon-cloud-download"></a></li>
+                <li id="cloud"><a href="#" class="glyphicon glyphicon-cloud-upload"></a></li>
+                <li id="humid"><a href="#" class="glyphicon glyphicon-fire"></a></li>
+            </ul> 
     </div>
 
 
     
     <div class="section"  id="#hourly">
-        <div class="block">
-            <h4>Hourly Fucking Forecast</h4>
+        <div>
+            <h2>Hourly Fucking Forecast</h2>
              <ul class="hour">
                
             </ul>    
