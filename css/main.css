@@ -127,9 +127,6 @@ ul {
     list-style: none;
 }
 
-li {
-    margin-left: -2em;
-}
 
 .block {
     background-color: rgba(0,0,0,0.6);
@@ -163,9 +160,15 @@ a:hover {
 .current a {
     color: white;
 }
-.current span{
-    display: none;
+.hour li {
+    display: inline-block;
+    margin: 1ex 1ex;
 }
+.hour span {
+    display: none;
+    color: #c2c2c2;
+}
+
 
 
 /* ==========================================================================
