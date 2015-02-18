@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('#fullpage').fullpage();
-	$.getJSON('weather2.json', function(data) {
+	$.getJSON('https://api.forecast.io/forecast/9e3f9effa091da78070dd0e26d01368f/38.6967,76.0122?callback=?', function(data) {
     //current weather
     var cTemp = data.currently.apparentTemperature;
     var cHumidity =  data.currently.humidity;
