@@ -13,6 +13,8 @@
         <!--bower:css-->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <!--endbower-->
+
+        <link href='http://fonts.googleapis.com/css?family=Oldenburg' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/weather-icons.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
@@ -29,78 +31,39 @@
 <div id="fullpage">
 <div class="section active">
     <header class="masthead">       
-         <h2>Motherfucking Weather Version 0.0.2</h2>
+         <h1>Motherfucking Weather Version 0.0.2</h1>
          <p>A T&J Enterprise</p>
     </header>
  </div>   
 
 
-    <div class="section" id="#current" >
-        <div class="block">
-            <h4>Current Conditions for<br> {{your fucking location}}</h4>
-             <i class="wi wi-night-cloudy"></i>
-             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>    
-            </ul>    
-        </div>        
+    <div class="section" id="#current">
+           <a href="#" class="glyphicon glyphicon-screenshot"></a><span>Orlando,FL</span>
+             <ul class="current">
+                <li id="temp"><a href="#" class="glyphicon glyphicon-leaf"></a></li>
+                <li id="sum"><a href="#" class="glyphicon glyphicon-cloud-download"></a></li>
+                <li id="cloud"><a href="#" class="glyphicon glyphicon-cloud-upload"></a></li>
+                <li id="humid"><a href="#" class="glyphicon glyphicon-fire"></a></li>
+            </ul> 
     </div>
 
 
     
     <div class="section"  id="#hourly">
-        <div class="block">
-            <h4>Hourly Fucking Forecast</h4>
-             <ul>
-                <li>0</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li>13</li>
-                <li>14</li>
-                <li>15</li>
-                <li>16</li>
-                <li>17</li>
-                <li>18</li>
-                <li>19</li>
-                <li>20</li>
-                <li>21</li>
-                <li>22</li>
-                <li>23</li>
-            </ul>    
-        </div>        
+            <h2>Next 10 Fucking Hours</h2>
+             <ul class="hour">
+            </ul>
     </div>
 
 
 
     <div class="section" id="#tenday">
-        <div class="block">
-            <h4>10 Day Fucking Forecast</h4>
-            <ul>
-                <li>0</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-            </ul>    
-        </div>
+            <h2>Fucking 3 Day</h2>
+            <ul class="daily">
+                <li class="list-group-item day1">Fucking Tomorrow -- </li>
+                <li class="list-group-item day2"></li>
+                <li class="list-group-item day3"></li>
+            </ul> 
     </div>   
 
     
