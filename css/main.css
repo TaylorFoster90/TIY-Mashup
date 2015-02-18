@@ -144,6 +144,9 @@ li {
     font-size: 10ex;
     float: right;
 }
+.hour i {
+    font-size: 1em;
+}
 
 
 
