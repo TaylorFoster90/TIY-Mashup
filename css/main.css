@@ -125,12 +125,14 @@ header {
 
 ul {
     list-style: none;
+    padding-left: 1ex;
 }
 
 
 .block {
     background-color: rgba(0,0,0,0.6);
-    font-family: Oldenburg;
+    display: inline-block;
+    width: 30%;
 }
 
 .hour {
@@ -157,18 +159,29 @@ a:hover {
     background-color: rgba(0,0,0,.6);
     width: 40%;
 }
+h2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: center;
+    font-size: 2em;
+    background-color: rgba(0,0,0,.6);
+    width: 35%;
+    border-radius:2em; 
+}
 .current a {
     color: white;
 }
-.hour li {
-    display: inline-block;
-    margin: 1ex 1ex;
+.hour li, .daily li {
+    background-color: rgba(0,0,0,.6);
 }
-.hour span {
-    display: none;
+.hour time {
     color: #c2c2c2;
+    font-size: 1.3em;
 }
-
+.daily {
+    width: 40%;
+    font-size: 1.5em;
+}
 
 
 /* ==========================================================================

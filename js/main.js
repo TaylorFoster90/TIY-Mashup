@@ -54,22 +54,10 @@ $(document).ready(function() {
     else{
         $('i').addClass('wi wi-meteor');
     };
-    $('li:nth-child(1)').append("<span>" + cTemp + "\&#176" + "</span>");
-    $('li:nth-child(2)').append("<span>" + cSummary + "</span>");
-    $('li:nth-child(3)').append("<span>" + "Cloud Cover: " + Math.floor(cCloudCover * 100) + "%" + "</span>");
-    $('li:nth-child(4)').append("<span>" + "Humidity: " + Math.floor(cHumidity * 100) + "%" + "</span>");
-    $('#temp').hover(function(){
-      $(this).children().css('display', 'inline');
-    });
-    $('#sum').hover(function(){
-      $(this).children().css('display', 'inline');
-    });
-    $('#cloud').hover(function(){
-      $(this).children().css('display', 'inline');
-    });
-    $('#humid').hover(function(){
-      $(this).children().css('display', 'inline');
-    });
+    $('.current li:nth-child(1)').append("<span>" + cTemp + "\&#176" + "</span>");
+    $('.current li:nth-child(2)').append("<span>" + cSummary + "</span>");
+    $('.current li:nth-child(3)').append("<span>" + "Cloud Cover: " + Math.floor(cCloudCover * 100) + "%" + "</span>");
+    $('.current li:nth-child(4)').append("<span>" + "Humidity: " + Math.floor(cHumidity * 100) + "%" + "</span>");
   });
  
   request.done(function(data){
@@ -79,10 +67,29 @@ $(document).ready(function() {
     var hSummary = _.map(hourly, 'summary');
     var hTime = _.map(hourly, 'time');
  
-    for (var i = 0; i < 24; i++) {
+    for (var i = 0; i < 10; i++) {
       var date = new Date(hTime[i] * 1000);
       var hours = date.getHours();
-      $('.hour').append("<li>" + "<time>" + hours + ":00" + "</time>" + " " + "<span>" + Math.floor(hTemp[i]) + "\&#176" + " " + hSummary[i] + "</span>" + "</li>");
+      $('.hour').append("<li class='list-group-item'>" + "<time>" + hours + ":00" + "</time>" + " " + "<span>" + Math.floor(hTemp[i]) + "\&#176" + " " + hSummary[i] + "</span>" + "</li>");
     }
+    console.log(data)
+    request.done(function(data){
+    //daily for 3 days
+    function grabTempHigh(a){
+        return data.daily.data[a].apparentTemperatureMax;
+    }
+    function grabTempLow(a){
+        return data.daily.data[a].apparentTemperatureMin;
+    }
+    function grabSummary(a){
+        return data.daily.data[a].summary;
+    }
+
+    $('.day1').html("Fuckin Tomorrow -- " + "High: " + Math.floor(grabTempHigh(0))+"\&#176" +" Low: "+ " " + Math.floor(grabTempLow(0))+ "\&#176"+" " + grabSummary(0));
+    $('.day2').html("Fuckin Day After -- " + "High: " + Math.floor(grabTempHigh(1))+"\&#176" +" Low: "+ " " + Math.floor(grabTempLow(1))+ "\&#176"+" " + grabSummary(1));
+    $('.day3').html("Fuckin Day After That -- " + "High: " + Math.floor(grabTempHigh(2))+"\&#176" +" Low: "+ " " + Math.floor(grabTempLow(2))+ "\&#176"+" " + grabSummary(2));
+
+
+  })
   });
 });
