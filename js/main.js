@@ -1,10 +1,10 @@
 $(document).ready(function() {
 var zip = $('zipcode').val();
-var zipcode = Number(zip)
+var zipcode = Number(zip);
 $("button").click(function(zip){
   $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+"&key=AIzaSyAFisviBgn4MTif0nM9VYfMP3rDoBrC_XM", function(data){
     console.log(data);
-  });
+    });
 });
 var TOKEN = '9e3f9effa091da78070dd0e26d01368f';
 var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${coords.lon}');
