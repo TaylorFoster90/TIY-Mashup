@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!--bower:css-->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
         <!--endbower-->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/weather-icons.css">
@@ -29,8 +29,15 @@
 <div id="fullpage">
 <div class="section active">
     <header class="masthead">       
-         <h2>Motherfucking Weather Version 0.0.2</h2>
+         <h2>Motherfucking Weather Version 0.0.3</h2>
          <p>A T&J Enterprise</p>
+         <div class="input-group zipInput">
+        <input id="zipbox" type="text" class="form-control" placeholder="Fucking zip code">
+        
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><img src="http://cdn.icons8.com/iOS7/PNG/25/Hands/middle_finger-25.png"></button>
+      </span>
+    </div>
     </header>
  </div>   
 
@@ -38,7 +45,7 @@
     <div class="section" id="#current" >
         <div class="block">
             <h4>Current Conditions for<br> {{your fucking location}}</h4>
-             <i class="wi wi-night-cloudy"></i>
+             <i></i>
              <ul>
                 <li></li>
                 <li></li>
@@ -111,8 +118,8 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <!--bower:js-->
         <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/lodash/lodash.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.min.js"></script>
         <!--endbower-->
         <script src="js/plugins.js"></script>
         <script type="text/javascript" src="js/jquery.fullPage.js"></script>

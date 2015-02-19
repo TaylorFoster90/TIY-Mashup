@@ -1,35 +1,94 @@
+/*
+//$.button.on(click) post zip code to geocoding api, return lat/lon
+//var userLoc = form return value
+//new json call = $.get(JSON('"https://api.forecast.io/forecast/9e3f9effa091da78070dd0e26d01368f/" + userLoc + "?callback=?"'
+*/
+
+
 $(document).ready(function(){
     $('#fullpage').fullpage();
-	$.getJSON('weather.json', function(data) {
-    // console.log(data.currently);
-    // console.log("Time:" + " " + data.currently.time);
-    // console.log(data.currently.summary);
-    // console.log("Feels Like:" + " " + data.currently.apparentTemperature);
-    // console.log("Actual Temp:" + " " + data.currently.temperature);
-    // console.log("Humidity:" + " " + data.currently.humidity);
-    // console.log("Windspeed:" + " " + data.currently.windSpeed);
-    // console.log("Chance of Rain:" + " " + data.currently.precipProbability + "%");
-    // console.log(data.daily.summary);
-    // console.log("Forecast:" + " " + data.daily.data[0].summary + "\nTomorrow:" + " " + data.daily.data[1].summary);
-    // console.log(data.daily);
+
+    $("button").click(function(zip){
+
+    $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + $('#zipbox').val() + "&key=AIzaSyAFisviBgn4MTif0nM9VYfMP3rDoBrC_XM");
+        console.log('success');
+        console.log($('#zipbox').val());
+        console.log(justthefuckingobjectplease);
 
 
-    //Jared, here is the variables for some of the things we will need to populate with, these focus soley
-    //on the CURRENT stats, obviously we can make some more `vars` for the "future" weather later on
-    //or loop threw this data, we'll talk about it more in person tomorrow, for now this gives
-    //us something to work with
-    var currentTemp = data.currently.apparentTemperature;
-    var humidity =  data.currently.humidity;
-    var summary =  data.currently.summary;
-    var cloudCover =  data.currently.cloudCover;
-    var icon =  data.currently.icon;
+    });
 
-    $('li:nth-child(1)').html(currentTemp + "\&#176");
-    $('li:nth-child(2)').html(summary);
-    $('li:nth-child(3)').html("cloud cover: "+ cloudCover);
-    $('li:nth-child(4)').html("humidity: " + humidity);
-    $('li:nth-child(5)').html('today will be: '+ icon);
+    $.getJSON('https://api.forecast.io/forecast/9e3f9effa091da78070dd0e26d01368f/28.6967,-81.0122?callback=?', function(data) {
+    //current weather
+    var cTemp = data.currently.apparentTemperature;
+    var cHumidity =  data.currently.humidity;
+    var cSummary =  data.currently.summary;
+    var cCloudCover =  data.currently.cloudCover;
+    var wIcon = data.currently.icon;
+    
 
+    if(wIcon = "rain"){
+        $('i').addClass("wi wi-rain");
+    } else if(wIcon == "light-rain"){
+        $('i').addClass("wi wi-showers");    
+    } else if(wIcon == "partly-cloudy-night"){
+        $('i').addClass("wi wi-night-cloudy");
+    } else if(wIcon == "cloudy"){
+        $('i').addClass("wi wi-cloudy");
+    } else if(wIcon == "clear-night"){
+        $('i').addClass("wi wi-night-clear");
+    } else if(wIcon == "clear-day"){
+        $('i').addClass("wi wi-day-sunny");
+    } else {
+        $('i').addClass("");
+    };
 
-});
-});
+    if(cSummary == 'Mostly Cloudy'){
+        $('i').addClass('wi wi-cloudy');
+    }
+    if(cSummary == 'Light Rain'){
+        $('i').addClass('wi wi-sprinkle');
+    }
+    if(cSummary = 'Partly Cloudy'){
+        $('i').addClass('wi wi-cloud');
+    }
+    if(cSummary == 'Rain'){
+        $('i').addClass('wi wi-rain');
+    }
+    if(cSummary == 'Snow'){
+        $('i').addClass('wi wi-snow');
+    };
+    $('li:nth-child(1)').append("<span>" + cTemp + "\&#176" + "</span>");
+    $('li:nth-child(2)').append("<span>" + cSummary + "</span>");
+    $('li:nth-child(3)').append("<span>" + "Cloud Cover: "+ Math.floor(cCloudCover*100)+"%" + "</span>");
+    $('li:nth-child(4)').append("<span>" + "Humidity: " + Math.floor(cHumidity*100) + "%" + "</span>");
+    $('#temp').hover(
+        function(){
+            $(this).children().css('display', 'inline');
+        });
+    $('#sum').hover(
+        function(){
+            $(this).children().css('display', 'inline');
+        });
+    $('#cloud').hover(
+        function(){
+            $(this).children().css('display', 'inline');
+        });
+    $('#humid').hover(
+        function(){
+            $(this).children().css('display', 'inline');
+        });
+    //hourly
+    var hourly = data.hourly.data
+    var hTemp =  _.map(hourly, 'temperature');
+    var hSummary = _.map(hourly, 'summary');
+    var hTime = _.map(hourly, 'time');
+
+    for(var i=0; i < 24; i++){
+        var date = new Date(hTime[i] * 1000);
+        var hours = date.getHours();
+        $('.hour').append("<li>"+hours+":00"+" "+Math.floor(hTemp[i])+"\&#176"+ " " + hSummary[i] +"</li>");
+        }
+    });
+
+   });

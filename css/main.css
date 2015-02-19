@@ -98,15 +98,18 @@ textarea {
    ========================================================================== */
 /*
 http://25.media.tumblr.com/4a5c28d5e0db3c191f7cf2fb9943f19a/tumblr_mlv6o8XmJJ1rqd92do1_500.gif (owl)
+http://themobilephotographyblog.com/gallery/2/64-160813122007.gif (window)
+http://i.imgur.com/FTvsN.gif (window2)
 http://i.imgur.com/22cgrad.gif (explorer)
 http://i.imgur.com/uOYFkKS.gif (waterfall and forest)
 http://i.imgur.com/tL01ibd.jpg (bruce lee)
 https://lh5.googleusercontent.com/-uITxt6RcH1M/VN9ulYkzOCI/AAAAAAAAA28/aU4X4fQ4_nE/w803-h324-no/greenland-sail.gif (greenland)
-http://i.imgur.com/gh2udno.jpg
+http://i.imgur.com/gh2udno.jpg (ski)
+http://4.bp.blogspot.com/-pmqYDpvMjgk/VGxNlV1Ae5I/AAAAAAAAP5U/XfGMYxh2SQo/s1600/Untitled-1.gif (table)
 
 */
 body {
-    background: url('http://i.imgur.com/gh2udno.jpg') no-repeat center center fixed;
+    background: url('http://4.bp.blogspot.com/-pmqYDpvMjgk/VGxNlV1Ae5I/AAAAAAAAP5U/XfGMYxh2SQo/s1600/Untitled-1.gif') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -121,6 +124,14 @@ header {
     margin-left: .5em;
     font-size: 3ex;
 /*    color: rgba(0,0,0,0.6);*/
+}
+
+.zipInput {
+    width: 60%;
+}
+
+button {
+    height: 4.6ex;
 }
 
 ul {
