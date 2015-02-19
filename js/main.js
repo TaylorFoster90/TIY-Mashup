@@ -1,7 +1,13 @@
 $(document).ready(function() {
-  var TOKEN = '9e3f9effa091da78070dd0e26d01368f';
- 
-  var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${coords.lon}');
+var zip = $('zipcode').val();
+var zipcode = Number(zip)
+$("button").click(function(zip){
+  $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+"&key=AIzaSyAFisviBgn4MTif0nM9VYfMP3rDoBrC_XM", function(data){
+    console.log(data);
+  });
+});
+var TOKEN = '9e3f9effa091da78070dd0e26d01368f';
+var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${coords.lon}');
  
   $('#fullpage').fullpage();
  
@@ -54,10 +60,10 @@ $(document).ready(function() {
     else{
         $('i').addClass('wi wi-meteor');
     };
-    $('.current li:nth-child(1)').append("<span>" + cTemp + "\&#176" + "</span>");
-    $('.current li:nth-child(2)').append("<span>" + cSummary + "</span>");
-    $('.current li:nth-child(3)').append("<span>" + "Cloud Cover: " + Math.floor(cCloudCover * 100) + "%" + "</span>");
-    $('.current li:nth-child(4)').append("<span>" + "Humidity: " + Math.floor(cHumidity * 100) + "%" + "</span>");
+    $('.current li:nth-child(1)').html(cTemp + "\&#176");
+    $('.current li:nth-child(2)').html(cSummary);
+    $('.current li:nth-child(3)').html("Cloud Cover: " + Math.floor(cCloudCover * 100) + "%");
+    $('.current li:nth-child(4)').html("Humidity: " + Math.floor(cHumidity * 100) + "%");
   });
  
   request.done(function(data){
