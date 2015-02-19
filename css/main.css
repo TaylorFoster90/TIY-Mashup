@@ -96,17 +96,8 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-/*
-http://25.media.tumblr.com/4a5c28d5e0db3c191f7cf2fb9943f19a/tumblr_mlv6o8XmJJ1rqd92do1_500.gif (owl)
-http://i.imgur.com/22cgrad.gif (explorer)
-http://i.imgur.com/uOYFkKS.gif (waterfall and forest)
-http://i.imgur.com/tL01ibd.jpg (bruce lee)
-https://lh5.googleusercontent.com/-uITxt6RcH1M/VN9ulYkzOCI/AAAAAAAAA28/aU4X4fQ4_nE/w803-h324-no/greenland-sail.gif (greenland)
-http://i.imgur.com/gh2udno.jpg
-
-*/
 body {
-    background: url('http://i.imgur.com/gh2udno.jpg') no-repeat center center fixed;
+    background: url('http://4.bp.blogspot.com/-pmqYDpvMjgk/VGxNlV1Ae5I/AAAAAAAAP5U/XfGMYxh2SQo/s1600/Untitled-1.gif') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -115,6 +106,13 @@ body {
     background-color:#333;
     font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
 }
+.zipInput {
+    width: 60%;
+}
+
+button {
+    height: 4.6ex;
+}
 
 header {
     height: 10ex;
@@ -122,39 +120,8 @@ header {
     font-size: 3ex;
 /*    color: rgba(0,0,0,0.6);*/
 }
-
-ul {
-    list-style: none;
-    padding-left: 1ex;
-}
-
-
-.block {
-    background-color: rgba(0,0,0,0.6);
-    display: inline-block;
-    width: 30%;
-}
-
-.hour {
-    display: inline-block;
-}
-.hour i {
-    font-size: 1em;
-}
-.hour ul li {
-    border: solid;
-}
-
-a:hover {
-    text-decoration: none;
-}
-.show{
-    display: inline;
-}
 .current {
     font-size: 2em;
-    border: solid;
-    padding-left: 10%;
     border-radius: 2em;
     background-color: rgba(0,0,0,.6);
     width: 40%;
@@ -168,19 +135,23 @@ h2 {
     width: 35%;
     border-radius:2em; 
 }
-.current a {
-    color: white;
+.hour {
+    width: 40%;
 }
 .hour li, .daily li {
     background-color: rgba(0,0,0,.6);
+    border: none;
 }
 .hour time {
     color: #c2c2c2;
     font-size: 1.3em;
 }
 .daily {
-    width: 40%;
+    width: 50%;
     font-size: 1.5em;
+}
+ul{
+    list-style: none;
 }
 
 
