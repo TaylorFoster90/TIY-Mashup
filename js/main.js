@@ -29,7 +29,7 @@ var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${
   }
  
   // Display loading animation...
-  var request = getWeather(TOKEN, { lat: '38.6967', lon: '76.0122' });
+  var request = getWeather(TOKEN, { lat: '38.6967', lon: '-76.0122' });
  
   request.done(function(data) {
     //current weather
