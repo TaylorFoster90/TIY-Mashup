@@ -1,17 +1,31 @@
 $(document).ready(function() {
-var zip = $('zipcode').val();
-var zipcode = Number(zip);
+  
+// $('#fullpage').fullpage(); 
+
 $("button").click(function(zip){
-  $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+"&key=AIzaSyAFisviBgn4MTif0nM9VYfMP3rDoBrC_XM", function(data){
-    console.log(data);
-    });
-});
+
+  $.ajax({
+  url: "http://maps.googleapis.com/maps/api/geocode/json?address="+$('#zipbox').val()+"&sensor=false",
+  type: "POST",
+  success: function(data, text){
+     console.log(data);
+     console.log(data.results[0].geometry.location.lat);
+     console.log(data.results[0].geometry.location.lng);
+     var latitude = data.results[0].geometry.location.lat;
+     var longitude = data.results[0].geometry.location.lng;
+     var location = data.results[0].address_components[1].long_name;
+     console.log(data.results[0].address_components[1].long_name);
+     $('.city').html("Current Fucking Weather in " + location);
+ 
+
+
+
 var TOKEN = '9e3f9effa091da78070dd0e26d01368f';
 var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${coords.lon}');
  
-  $('#fullpage').fullpage();
+  
  
-  /**
+  /**line
    * @param Object coords with { lat: Number, lon: Number }
    */
   function getWeather(token, coords){
@@ -21,6 +35,7 @@ var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${
     })
       .fail(function(){
         // Add error message to page...
+        console.log("getWeather error");
       })
       .always(function(){
         // Hide / remove loading animation...
@@ -29,7 +44,8 @@ var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${
   }
  
   // Display loading animation...
-  var request = getWeather(TOKEN, { lat: '38.6967', lon: '76.0122' });
+  // var request = getWeather(TOKEN, { lat: '28.5299364', lon: '-81.9873477' });
+  var request = getWeather(TOKEN, { lat: latitude, lon: longitude });
  
   request.done(function(data) {
     //current weather
@@ -38,27 +54,30 @@ var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${
     var cSummary = data.currently.summary;
     var cCloudCover = data.currently.cloudCover;
     var wIcon = data.currently.icon;
- 
-    if (wIcon == 'cloudy'){
+ console.log(wIcon);
+    if (wIcon === 'cloudy'){
       $('i').addClass('wi wi-cloudy');
     }
-    if (wIcon == 'rain'){
+    if (wIcon === 'rain'){
       $('i').addClass('wi wi-rain');
     }
-    if (wIcon = 'clear-day'){
+    if (wIcon === 'clear-day'){
       $('i').addClass('wi wi-day-sunny');
     }
-    if (cSummary == 'clear-night'){
+    if (wIcon === '"clear-night"'){
       $('i').addClass('wi wi-night-clear');
     }
-    if(wIcon == 'partly-cloudy-night'){
-        ('i').addClass('wi wi-night-cloudy')
+    if(wIcon === '"partly-cloudy"'){
+        ('i').addClass('wi wi-day-cloudy')
     }
-    if (wIcon == ''){
+    if(wIcon === '"partly-cloudy-night"'){
+        ('i').addClass('wi wi-snow')
+    }
+    if (wIcon === ''){
       $('i').addClass('wi wi-snow');
     }
     else{
-        $('i').addClass('wi wi-meteor');
+        $('i').addClass('wi wi-night-cloudy');
     };
     $('.current li:nth-child(1)').html(cTemp + "\&#176");
     $('.current li:nth-child(2)').html(cSummary);
@@ -68,17 +87,17 @@ var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${
  
   request.done(function(data){
     //hourly
-    var hourly = data.hourly.data
-    var hTemp = _.map(hourly, 'temperature');
-    var hSummary = _.map(hourly, 'summary');
-    var hTime = _.map(hourly, 'time');
+    // var hourly = data.hourly.data;
+    // var hTemp = _.map(hourly, 'temperature');
+    // var hSummary = _.map(hourly, 'summary');
+    // var hTime = _.map(hourly, 'time');
  
-    for (var i = 0; i < 10; i++) {
-      var date = new Date(hTime[i] * 1000);
-      var hours = date.getHours();
-      $('.hour').append("<li class='list-group-item'>" + "<time>" + hours + ":00" + "</time>" + " " + "<span>" + Math.floor(hTemp[i]) + "\&#176" + " " + hSummary[i] + "</span>" + "</li>");
-    }
-    console.log(data)
+    // for (var i = 0; i <= 10; i++) {
+    //   var date = new Date(hTime[i] * 1000);
+    //   var hours = date.getHours();
+    //   $('.hour').append("<li class='list-group-item'>" + "<time>" + hours + ":00" + "</time>" + " " + "<span>" + " " + Math.floor(hTemp[i]) + "\&#176" + " " + hSummary[i] + "</span>" + "</li>");
+    // }
+    console.log(data);
     request.done(function(data){
     //daily for 3 days
     function grabTempHigh(a){
@@ -89,13 +108,19 @@ var API = _.template('https://api.forecast.io/forecast/${token}/${coords.lat},${
     }
     function grabSummary(a){
         return data.daily.data[a].summary;
-    }
+    };
 
-    $('.day1').html("Fuckin Tomorrow -- " + "High: " + Math.floor(grabTempHigh(0))+"\&#176" +" Low: "+ " " + Math.floor(grabTempLow(0))+ "\&#176"+" " + grabSummary(0));
-    $('.day2').html("Fuckin Day After -- " + "High: " + Math.floor(grabTempHigh(1))+"\&#176" +" Low: "+ " " + Math.floor(grabTempLow(1))+ "\&#176"+" " + grabSummary(1));
-    $('.day3').html("Fuckin Day After That -- " + "High: " + Math.floor(grabTempHigh(2))+"\&#176" +" Low: "+ " " + Math.floor(grabTempLow(2))+ "\&#176"+" " + grabSummary(2));
+    $('.day1').html("tomorrow:  " + "high: " + Math.floor(grabTempHigh(0))+"\&#176" +" low: "+ " " + Math.floor(grabTempLow(0))+ "\&#176"+" " + grabSummary(0));
+    $('.day2').html("the next day:  " + "high: " + Math.floor(grabTempHigh(1))+"\&#176" +" low: "+ " " + Math.floor(grabTempLow(1))+ "\&#176"+" " + grabSummary(1));
+    $('.day3').html("the day after:  " + "high: " + Math.floor(grabTempHigh(2))+"\&#176" +" low: "+ " " + Math.floor(grabTempLow(2))+ "\&#176"+" " + grabSummary(2));
 
 
   })
   });
+
+ }
+});
+
+
+});
 });

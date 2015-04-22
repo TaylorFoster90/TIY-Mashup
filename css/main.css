@@ -109,35 +109,40 @@ body {
 .zipInput {
     width: 60%;
 }
-
-button {
+/*.section {
+    height: 50vh;
+}*/
+/*button {
     height: 4.6ex;
 }
-
+li {
+    list-style: none;
+}
 header {
     height: 10ex;
     margin-left: .5em;
     font-size: 3ex;
 /*    color: rgba(0,0,0,0.6);*/
-}
+/*}
 .current {
     font-size: 2em;
-    border-radius: 2em;
     background-color: rgba(0,0,0,.6);
     width: 40%;
+    margin-left: 2.5em;
 }
+
 h2 {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    text-align: center;
-    font-size: 2em;
+    padding: 1ex;
+    font-size: 1.5em;
     background-color: rgba(0,0,0,.6);
-    width: 35%;
-    border-radius:2em; 
+    width: 50%;
 }
+
 .hour {
-    width: 40%;
+    width: 50%;
 }
+
+
 .hour li, .daily li {
     background-color: rgba(0,0,0,.6);
     border: none;
@@ -152,7 +157,8 @@ h2 {
 }
 ul{
     list-style: none;
-}
+}*/*/
+
 
 
 /* ==========================================================================
